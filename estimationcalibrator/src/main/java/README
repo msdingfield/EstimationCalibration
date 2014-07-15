@@ -1,0 +1,48 @@
+
+Steps to get my webapp going.
+
+Downloaded Eclipse Luna for EE. 
+Create a repository at Github.
+Started eclipse.
+Opened Window -> Preferences and selected the General / Network Connections / SSH2 item and add my GitHub private key.
+Opened the Git perspective.
+Cloned existing respository using SSH and copying the URL provided by GitHub.
+Created a new Maven project using the webapp archetype.
+Upgraded junit dependency to 
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+    </dependency>
+
+Added dependency following to fix error with my index.jsp.
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>3.1.0</version>
+    </dependency>
+
+Installed Jetty plugin from http://marketplace.eclipse.org/content/eclipse-jetty#.U8NX_bFlCHs by dragging install to Eclipse.
+
+Opened Preferences selected Java / Installed JREs.
+Click Add..., Standard VM, Next
+Selected the Directory where I installed the Java JDK
+This was needed in order to compile JSPs when running Jetty in Eclipse.
+
+http://zeroturnaround.com/rebellabs/your-next-java-web-app-less-xml-no-long-restarts-fewer-hassles-part-1/
+
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>3.1.1.RELEASE</version>
+    </dependency>
+    
+Changed first line of web.xml to <?xml version="1.0" encoding="ISO-8859-1" ?>
+
+Change webapp tag to 
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0"> 

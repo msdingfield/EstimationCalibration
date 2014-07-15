@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Sign Up</title>
+	</head>
+	<body>
+		
+		<c:if test="${ signupFailed == 'duplicate' }">
+			<p>That username already exists.  Please try another, or <a href="/login">click here to sign in.</a></p>
+		</c:if>
+		
+		<p>Please enter your desired username and password.</p>
+		
+		<c:url value="/signup" var="signupUrl"/>
+		<form action="${signupUrl}" method="post">
+		    <p>
+		        <label for="username">Username</label>
+		        <input type="text" id="username" name="username"/>	
+		    </p>
+		    <p>
+		        <label for="password">Password</label>
+		        <input type="password" id="password" name="password"/>	
+		    </p>
+		    <input type="hidden"                        
+		        name="${_csrf.parameterName}"
+		        value="${_csrf.token}"/>
+		    <button type="submit" class="btn">Create Account</button>
+		</form>
+	</body>
+</html>
