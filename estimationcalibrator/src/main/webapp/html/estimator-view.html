@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="well well-sm topbar">
+		<div class="topbar-left">
+			<span>You are logged in as {{estimator.username}}.</span>
+		</div>
+		<div class="topbar-right">
+			<md-lang language='estimator.language' on-select='setLanguage'></md-lang>
+			<form class="form-inline" action="/logout" method="post">
+				<button type="submit" class="btn btn-default">Logout</button>
+			    <input type="hidden" name="{{_csrfParameterName}}" value="{{_csrfToken}}"/> 
+			</form>
+		</div>
+	</div>
+	
+	<md-question-edit-form question="question" on-save="addQuestion"></md-question-edit-form>
+	<md-question-list questions="yourQuestions" on-select="selectQuestion"></md-question-list>
+</div>

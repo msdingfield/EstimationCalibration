@@ -1,6 +1,9 @@
-package msdingfield.estimationcalibrator;
+package msdingfield.estimationcalibrator.signup;
 
-public class Credentials {
+public class SignupCommand {
+	private String username;
+	private String password;
+	
 	public String getUsername() {
 		return username;
 	}
@@ -13,6 +16,10 @@ public class Credentials {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	private String username;
-	private String password;
+	
+	@Override
+	public String toString() {
+		return "Credentials [username=" + username + ", password=" + password
+				+ "]";
+	}
 }

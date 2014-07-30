@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Add a new question!</div>
+    <div class="panel-body">
+        <textarea placeholder="Enter your question here.  The question must have a numeric answer." ng-model="question.prose"></textarea>
+        <div>
+	        <label for="answer">Enter number answer.</label><input name="answer" type="text" placeholder="Answer" ng-model="question.exactAnswer"></input>
+	        
+	        <label>Select the language for this question.</label>
+			<md-lang language="question.language"></md-lang>
+			<button type="submit" class="btn btn-success" ng-disabled="!isDirty" ng-click="save()">Save</button>
+			<button type="submit" class="btn btn-success" ng-disabled="!(question.questionId || isDirty)" ng-click="newQuestion()">New</button>
+		</div>
+    </div>
+</div>
